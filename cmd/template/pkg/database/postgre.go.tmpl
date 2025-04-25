@@ -54,7 +54,7 @@ func NewDatabase(lc fx.Lifecycle, config *config.Config, log *loggerCustom.Stand
 		return nil, err
 	}
 
-	db.AutoMigrate(&entity.User{})
+	db.AutoMigrate()
 
 	if config.DB.SetMaxIdleConns != "" {
 		sqlDb.SetMaxIdleConns(cast.ToInt(config.DB.SetMaxIdleConns))

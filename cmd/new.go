@@ -25,17 +25,17 @@ var projectName string
 
 var newCmd = &cobra.Command{
 	Use:   "new",
-	Short: "Create a new Uber Fx REST API project",
+	Short: "Create a new REST API project",
 	Args:  cobra.NoArgs,
 	Run: func(cmd *cobra.Command, args []string) {
 		if projectName == "" {
-			log.Fatal("❌ Please provide a project name using --name flag.")
+			log.Fatal("Please provide a project name using --name flag.")
 		}
 
 		if err := generateProject(projectName); err != nil {
 			log.Fatalf("failed to generate project: %v", err)
 		}
-		fmt.Println("✅ Project created:", projectName)
+		fmt.Println("Project created:", projectName)
 	},
 }
 
@@ -58,13 +58,11 @@ func generateProject(name string) error {
 		ProjectName: name,
 	}
 
-	// Walk through the template directory and create project
 	err := fs.WalkDir(templateFS, "template", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
 
-		// Loại bỏ "template/" hoàn toàn khỏi đường dẫn file
 		relPath := strings.TrimPrefix(path, "template/")
 		if relPath == "" {
 			return nil

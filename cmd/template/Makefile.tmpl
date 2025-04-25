@@ -4,6 +4,7 @@ install-tools:
 	@echo "Installing required tools..."
 	@go install github.com/swaggo/swag/cmd/swag@latest
 	@go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	@go install golang.org/x/tools/cmd/goimports@latest
 	@echo "Tools installed successfully!"
 
 swagger-init:
@@ -26,8 +27,8 @@ run:
 test:
 	go test -v ./...
 
-format: 
-	go fmt ./...
+fmt:
+	goimports -w .
 
 lint:
 	golangci-lint run ./...
