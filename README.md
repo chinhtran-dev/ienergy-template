@@ -1,4 +1,4 @@
-# Init Service Tool
+# Ienergy template tool
 
 A CLI tool to quickly scaffold new Go services with modern project structure and best practices.
 
@@ -15,7 +15,7 @@ A CLI tool to quickly scaffold new Go services with modern project structure and
 ## Installation
 
 ```bash
-go install github.com/chinhtran-dev/init-service-tool@latest
+go install github.com/chinhtran-dev/ienergy-template@latest
 ```
 
 ## Project Structure
@@ -64,7 +64,7 @@ myservice/
 
 1. Create a new service:
 ```bash
-init-service-tool new --name yourservice
+inergy-template new --name yourservice
 ```
 
 2. Navigate to your service directory:
@@ -88,7 +88,6 @@ make fmt
 ```
 
 6. Configure your environment:
-- Copy `.env.example` to `.env`
 - Update values in `.env` file
 
 7. Build the service:
