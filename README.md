@@ -101,6 +101,16 @@ make build
 make run
 ```
 
+## Testing
+- To create the mock service/repo define in .mockery.yaml and run
+``` bash
+make generate-mock
+```
+- To create the unit test using go tool
+1. Click right mouse
+2. Choose Go:Generate Unit Tests For Function
+3. Complete your testcase
+
 ## Available Make Commands
 
 - `make init` - Initialize project and install dependencies
@@ -112,3 +122,4 @@ make run
 - `make lint` - Run linters
 - `make swagger-init` - Generate Swagger documentation
 - `make swagger-build` - Update Swagger documentation
+- `make generate-mock` - Update Swagger documentation
