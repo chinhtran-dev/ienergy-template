@@ -68,22 +68,17 @@ func generateProject(name string) error {
 			return nil
 		}
 
-		// Tạo đường dẫn đầy đủ cho file hoặc thư mục trong dự án mới
 		outputPath := filepath.Join(name, relPath)
 
 		if d.IsDir() {
-			// Nếu là thư mục, tạo thư mục mới trong dự án
 			return os.MkdirAll(outputPath, os.ModePerm)
 		}
 
-		// Nếu là file .tmpl, loại bỏ phần mở rộng .tmpl
 		if strings.HasSuffix(relPath, ".tmpl") {
-			// Loại bỏ phần mở rộng .tmpl
 			relPath = strings.TrimSuffix(relPath, ".tmpl")
 			outputPath = filepath.Join(name, relPath)
 		}
 
-		// Đọc nội dung file template
 		content, err := templateFS.ReadFile(path)
 		if err != nil {
 			return err
@@ -91,20 +86,17 @@ func generateProject(name string) error {
 
 		contentStr := strings.ReplaceAll(string(content), "{{.name}}", name)
 
-		// Parse template
 		tpl, err := template.New(path).Parse(contentStr)
 		if err != nil {
 			return err
 		}
 
-		// Tạo file output từ template
 		f, err := os.Create(outputPath)
 		if err != nil {
 			return err
 		}
 		defer f.Close()
 
-		// Thực thi template và ghi ra file
 		return tpl.Execute(f, data)
 	})
 
@@ -112,7 +104,6 @@ func generateProject(name string) error {
 		return err
 	}
 
-	// Sau khi hoàn tất, xóa thư mục "template" bên trong thư mục dự án
 	templateDirPath := filepath.Join(name, "template")
 	return os.RemoveAll(templateDirPath)
 }

@@ -33,6 +33,7 @@ myservice/
 │   ├── app/            # Application bootstrapping
 │   ├── http/           # HTTP layer
 |   |    ├── handler/   # HTTP handlers
+│   |    ├── dto/       # Data transfer object
 |   |    └── router/    # Route definitions
 |   ├── middleware/     # HTTP middleware
 │   ├── model/         # Domain models
@@ -46,7 +47,7 @@ myservice/
 |   ├── logger/        # Logging utilities
 |   ├── swagger/       # Swagger handler
 |   ├── util/          # Common utilities
-│   └── wrapper/       # Common wrappers
+│   └── wrapper/       # Response wrapper
 ├── test/
 │   └── integration/   # Integration tests
 ├── go.mod            # Go module file
