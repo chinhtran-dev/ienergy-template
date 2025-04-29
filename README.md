@@ -52,6 +52,7 @@ myservice/
 │   └── integration/   # Integration tests
 ├── go.mod            # Go module file
 ├── .env              # Environment variables
+├── .mockery.yaml          # Build automation
 ├── Makefile          # Build automation
 └── README.md
 ```
