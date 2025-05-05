@@ -66,7 +66,7 @@ myservice/
 
 1. Create a new service:
 ```bash
-inergy-template new --name yourservice
+ienergy-template new --name yourservice
 ```
 
 2. Navigate to your service directory:
